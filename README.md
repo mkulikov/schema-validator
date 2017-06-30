@@ -2,7 +2,7 @@ Schema validator is a library that allows to validate according to the JSON Sche
 
 # Build
 To build a library run the following command:
-`$ bash gradlew fatJar`
+`$ bash gradlew fatjar`
 
 Also you can use gradle:
 `$ gradle clean fatjar`
