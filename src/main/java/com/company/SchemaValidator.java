@@ -13,12 +13,25 @@ public class SchemaValidator {
     public static String validate(String schemaPath, String responceString) throws IOException, ProcessingException {
 
         final JsonNode schemafile = JsonLoader.fromPath(schemaPath);
-        JsonNode responce = JsonLoader.fromString(responceString);
+        JsonNode response = JsonLoader.fromString(responceString);
 
         final JsonSchemaFactory factory = JsonSchemaFactory.byDefault();
         final JsonSchema schema = factory.getJsonSchema(schemafile);
 
-        ProcessingReport report = schema.validate(responce);
+        ProcessingReport report = schema.validate(response);
+
+        return report.toString();
+    }
+
+    public static String validateByString(String schemaString, String responceString) throws IOException, ProcessingException {
+
+        final JsonNode schemafile = JsonLoader.fromString(schemaString);
+        JsonNode response = JsonLoader.fromString(responceString);
+
+        final JsonSchemaFactory factory = JsonSchemaFactory.byDefault();
+        final JsonSchema schema = factory.getJsonSchema(schemafile);
+
+        ProcessingReport report = schema.validate(response);
 
         return report.toString();
     }
