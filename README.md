@@ -9,7 +9,7 @@ Also you can use gradle:
 
 # Usage
 ```java
-com.company.SchemaValidator;
+import com.company.SchemaValidator;
 String result = SchemaValidator.validate(schemaPath, responceString);
 ```
 All you need is a path to the file with JSON Schema and a validating String
