@@ -1,4 +1,4 @@
-package com.company;
+package com.github.mkulikov;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.github.fge.jackson.JsonLoader;
@@ -12,11 +12,11 @@ public class SchemaValidator {
 
     public static String validate(String schemaPath, String responseString) throws IOException, ProcessingException {
 
-        final JsonNode schemafile = JsonLoader.fromPath(schemaPath);
+        final JsonNode schemaFile = JsonLoader.fromPath(schemaPath);
         JsonNode response = JsonLoader.fromString(responseString);
 
         final JsonSchemaFactory factory = JsonSchemaFactory.byDefault();
-        final JsonSchema schema = factory.getJsonSchema(schemafile);
+        final JsonSchema schema = factory.getJsonSchema(schemaFile);
 
         ProcessingReport report = schema.validate(response);
 
@@ -25,11 +25,11 @@ public class SchemaValidator {
 
     public static String validateByString(String schemaString, String responseString) throws IOException, ProcessingException {
 
-        final JsonNode schemafile = JsonLoader.fromString(schemaString);
+        final JsonNode schemaFile = JsonLoader.fromString(schemaString);
         JsonNode response = JsonLoader.fromString(responseString);
 
         final JsonSchemaFactory factory = JsonSchemaFactory.byDefault();
-        final JsonSchema schema = factory.getJsonSchema(schemafile);
+        final JsonSchema schema = factory.getJsonSchema(schemaFile);
 
         ProcessingReport report = schema.validate(response);
 

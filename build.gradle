@@ -1,4 +1,4 @@
-group 'com.company'
+group 'com.github.mkulikov'
 version '1.0'
 
 apply plugin: 'java'
